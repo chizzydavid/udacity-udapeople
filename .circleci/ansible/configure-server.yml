@@ -21,6 +21,7 @@
     - configure-server
   environment:
     - ENVIRONMENT: production
+    - NODE_ENV: production
     - TYPEORM_CONNECTION: ${TYPEORM_CONNECTION}
     - TYPEORM_ENTITIES: ${TYPEORM_ENTITIES}
     - TYPEORM_HOST: ${TYPEORM_HOST}

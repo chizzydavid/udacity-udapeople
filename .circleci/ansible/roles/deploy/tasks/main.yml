@@ -19,7 +19,7 @@
     apt: 
       name: ['nodejs', 'npm']
       state: latest
-      update_cache: yes     
+      update_cache: yes
   
   - name: Install pm2
     become: true
@@ -33,11 +33,17 @@
       path: /home/ubuntu/nodeapp
       state: directory
   
-  - name: Install Index JS
+  - name: Copy application files
     copy:
-      src: index.js
-      dest: /home/ubuntu/nodeapp/index.js
+      src: /root/project/artifact.tar.gz
+      dest: /home/ubuntu/nodeapp/artifact.tar.gz
       backup: yes
+
+  - name: Uncompress application files
+    shell: |
+      cd /home/ubuntu/nodeapp
+      tar xvzf artifact.tar.gz -C .
+      ls -la
 
   - name: Stop Application
     become: yes
@@ -48,7 +54,10 @@
 
   - name: Start Application
     become: yes
-    command: pm2 start index.js --name nodeapp 
+    shell: |
+      npm install
+      npm run build
+      pm2 start dist/main.js --name nodeapp 
     args: 
       chdir: /home/ubuntu/nodeapp
 
