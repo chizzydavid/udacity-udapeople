@@ -14,9 +14,6 @@
     # - shell: sleep 600
     - shell: ls
 
-    # - name: "install python for Ansible."
-    #   # Your code here
-
   roles:
     - configure-server
   environment:
