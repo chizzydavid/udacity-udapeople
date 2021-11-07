@@ -1,0 +1,3 @@
+GITHUB PROJECT URL - https://github.com/chizzydavid/udacity-udapeople
+S3 BUCKET URL - http://udapeople-98c4890.s3-website.us-east-2.amazonaws.com
+CLOUDFRONT URL - http://d1qof86wrz8179.cloudfront.net/
